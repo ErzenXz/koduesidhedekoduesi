@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Set background color and font styles */
+body {
+    background-color: #000000;
+    /* black background */
+    position: relative;
+    /* set position to relative for stacking context */
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    overflow: hidden;
+    user-select: none;
+}
+
+.background-image {
+    margin-top: -55px;
+    margin-left: -30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 105vw;
+    height: 105vh;
+    overflow: hidden;
+    z-index: -1;
+    background-image: url('image2.jpg');
+    background-size: cover;
+    object-fit: fill;
+    background-repeat: no-repeat;
+    filter: blur(5px);
+    transition: all 0.35s cubic-bezier(0.39, 0.575, 0.565, 1) 0ms;
+}
+
+/* Container for the validator */
+main {
+    color: rgba(0, 0, 0, 0.838);
+    /* white text color */
+
+    max-width: 800px;
+    max-height: 500px;
+    overflow-y: auto;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 2%;
+    border-radius: 12px;
+    border: transparent;
+    backdrop-filter: blur(10px);
+}
+
+/* Title style */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: rgba(0, 0, 0, 0.838);
+    text-align: center;
+    margin-top: 0;
+}
+
+/* Button style */
+button {
+    display: block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: rgba(0, 0, 0, 0.838);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: rgba(255, 255, 255, 0.503);
+}
+
+
+.circle {
+    width: 185px;
+    height: 185px;
+    background: linear-gradient(to top left, #979fa7a9, #2f8ec598);
+    filter: blur(5px) saturate(1.5) brightness(0.8) contrast(1.2);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -20px 0 0 -20px;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    z-index: -1;
+}
+
+input[type="number"],
+input[type="text"] {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    width: 100%;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: rgba(0, 0, 0, 0.838);
+    border: none;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+    outline: none;
+}
+
+.rezultati {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    width: 100%;
+    max-width: 400px;
+    word-wrap: break-word;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: rgba(0, 0, 0, 0.838);
+    border: none;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+    outline: none;
+    user-select: text;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    width: 15%;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: rgba(0, 0, 0, 0.838);
+    border: none;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+    outline: none;
+    user-select: text;
+}
+
+select {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    width: 100%;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: rgba(0, 0, 0, 0.838);
+    border: none;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+    outline: none;
+    user-select: text;
+    cursor: pointer;
+}
+
+::selection {
+    color: #000;
+    background-color: #c0c7c2cb;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px -15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(225, 225, 227, 0.612);
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(134, 134, 136, 0.612);
+    border-radius: 20px;
+}
+
+.version {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: rgba(0, 0, 0, 0.838);
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+a {
+    color: rgba(0, 0, 0, 0.838);
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgba(0, 0, 0, 0.838);
+    text-decoration: underline;
+}

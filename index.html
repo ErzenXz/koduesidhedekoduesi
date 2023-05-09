@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kodimi dhe Dekodimi i numrave BCD</title>
+    <script defer src="https://unpkg.com/kinet@2.2.1/dist/kinet.min.js"></script>
+    <script defer src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="background-image"></div>
+
+
+    <main>
+        <h1>Koduesi dhe Dekoduesi</h1>
+        <select name="modeli" id="modeli">
+            <option value="0" disabled selected>Modeli</option>
+            <option value="1">8-4-2-1</option>
+            <option value="2">5-4-2-1</option>
+            <option value="3">5-2-1-1</option>
+            <option value="4">2-4-2-1</option>
+        </select>
+
+        <h3>Konvertoni ne BCD</h3>
+
+        <div class="toBCD">
+            <input type="number" name="numri" id="numri">
+
+
+            <button onclick="konverto()">Kodo</button>
+
+            <p class="rezultati hidden" id="rezultati"></p>
+        </div>
+
+        <h3>Konvertoni prej BCD</h3>
+
+        <div class="toDecimal">
+            <input type="text" name="numri" id="numri2">
+
+            <button onclick="dekodo()">Dekodo</button>
+
+            <p class="rezultati hidden" id="rezultati1"></p>
+        </div>
+
+    </main>
+
+
+    <div id="circle" class="circle"></div>
+
+    <div class="version">
+        <pre><a href="https://erzen.tk" target="_blank">Erzen Krasniqi</a>           All rights reserved         2023©</pre>
+    </div>
+
+</body>
+
+</html>
