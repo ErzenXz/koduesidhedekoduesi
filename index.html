@@ -9,6 +9,8 @@
     <script defer src="https://unpkg.com/kinet@2.2.1/dist/kinet.min.js"></script>
     <script defer src="app.js"></script>
     <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Uebfaqe qe konverton numrat decimal ne modele te BCD.">
+    <meta name="keywords" content="bcd, numbers, binary, xs3, gray code, kodi grey, numrat decimal">
 
 </head>
 
@@ -19,11 +21,15 @@
 
     <main>
         <h1>Koduesi dhe Dekoduesi</h1>
+
         <select name="modeli" id="modeli">
             <option value="0" disabled selected>Modeli</option>
-            <option value="1">8-4-2-1</option>
+            <option value="1">NBCD (8-4-2-1)</option>
+            <option value="5">XS3 (84-2-1)</option>
+            <option value="6">Gray Code</option>
             <option value="2">5-4-2-1</option>
             <option value="3">5-2-1-1</option>
+            <option value="7">4-3-2-1</option>
             <option value="4">2-4-2-1</option>
         </select>
 

@@ -5,7 +5,6 @@ let model = 1;
 
 modeli.addEventListener('change', function () {
     const selectedValue = modeli.value;
-    // Call your function with the selected value as a parameter
     model = selectedValue;
 });
 
@@ -37,6 +36,7 @@ function konvertoNeBCD(numri, modeli) {
     let array2 = [5, 4, 2, 1];
     let array3 = [5, 2, 1, 1];
     let array4 = [2, 4, 2, 1];
+    let array5 = [4, 3, 2, 1];
 
     switch (modeli) {
         case "1":
@@ -50,6 +50,15 @@ function konvertoNeBCD(numri, modeli) {
             break;
         case "4":
             rezultati += konvertoV(array4, b);
+            break;
+        case "5":
+            rezultati += konvertoXS3(array, b);
+            break;
+        case "6":
+            rezultati += grayCode(b);
+            break;
+        case "7":
+            rezultati += konvertoV(array5, b);
             break;
         default:
             rezultati += konvertoV(array, b);
@@ -66,6 +75,7 @@ function konvertoPrejBCD(numri, modeli) {
     let array2 = [5, 4, 2, 1];
     let array3 = [5, 2, 1, 1];
     let array4 = [2, 4, 2, 1];
+    let array5 = [4, 3, 2, 1];
 
     switch (modeli) {
         case "1":
@@ -79,6 +89,15 @@ function konvertoPrejBCD(numri, modeli) {
             break;
         case "4":
             rezultati += konvertoZ(array4, b);
+            break;
+        case "5":
+            rezultati += konvertoPrejXS3(array, b);
+            break;
+        case "6":
+            rezultati += prejGrayCode(b);
+            break;
+        case "7":
+            rezultati += konvertoZ(array5, b);
             break;
         default:
             rezultati += konvertoZ(array, b);
@@ -106,25 +125,36 @@ function konvertoV(array, targeti) {
     return rezultati;
 }
 
+function konvertoXS3(array, target) {
+    let b = String(target);
+    let numbers = [];
 
-// function konverto5421(array, targeti) {
+    for (let i = 0; i < b.length; i++) {
+        numbers.push(konvertoSpecific(array, parseInt(b[i]) + 3));
+    }
 
-//     let b = String(targeti);
-//     let rezultati = "";
+    let result = numbers.join(" ");
 
-//     for (let i = 0; i < b.length; i++) {
-//         if (i == 0) {
-//             rezultati += konvertoSpecific(array, parseInt(b[i]));
+    return result;
+}
 
-//         } else {
-//             rezultati += " " + konvertoSpecific(array, parseInt(b[i]));
-//         }
-//     }
+function konvertoPrejXS3(array, target) {
+    let b = String(target).split(" ");
+
+    for (let i in b) {
+        b[i] = konvertoDecimalSpecifik(array, b[i]);
+    }
+
+    for (let i in b) {
+        b[i] = Number(b[i]) - 3;
+    }
 
 
-//     return rezultati;
+    let result = b.join("");
 
-// }
+    return result;
+}
+
 
 
 function konvertoSpecific(array, target) {
@@ -180,6 +210,29 @@ function konvertoZ(array, targeti) {
 }
 
 
+function grayCode(n, length) {
+    let gray = (n ^ (n >> 1)).toString(2);
+    while (gray.length < length) {
+        gray = '0' + gray;
+    }
+    return gray;
+}
+
+
+function prejGrayCode(n) {
+    // E kthejm ne numer binar
+    n = parseInt(n, 2);
+
+    let mask = n;
+    while (mask !== 0) {
+        mask >>= 1;
+        n ^= mask;
+    }
+
+    return n;
+}
+
+
 const images = ['image.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg', 'image5.jpg', 'image6.jpg', 'image7.png', 'image8.jpg', 'image9.jpg', 'image10.jpg',];
 shuffleArray(images);
 let currentIndex = 0;
@@ -210,8 +263,8 @@ document.addEventListener('mousemove', function (event) {
     kinet.animate('y', event.clientY - window.innerHeight / 2);
 });
 kinet.on('start', function () {
-    console.log('start');
+    //
 });
 kinet.on('end', function () {
-    console.log('end');
+    //
 });
