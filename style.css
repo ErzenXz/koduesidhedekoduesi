@@ -219,3 +219,36 @@ a:hover {
     color: rgba(0, 0, 0, 0.838);
     text-decoration: underline;
 }
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    user-select: text;
+}
+
+thead {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+tbody {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.238);
+    transition: all 0.2s cubic-bezier(0.39, 0.575, 0.565, 1) 0ms;
+}
+
+td {
+    padding: 0.5rem;
+    text-align: center;
+}
+
+th {
+    padding: 0.5rem;
+    text-align: center;
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.203);
+}

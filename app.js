@@ -6,6 +6,43 @@ let model = 1;
 modeli.addEventListener('change', function () {
     const selectedValue = modeli.value;
     model = selectedValue;
+
+    switch (selectedValue) {
+        case "1":
+            document.getElementById("in").innerText = "Konvertoni ne NBCD (8-4-2-1)";
+            document.getElementById("out").innerText = "Konvertoni prej NBCD (8-4-2-1)";
+            break;
+        case "2":
+            document.getElementById("in").innerText = "Konvertoni ne BCD (5-4-2-1)";
+            document.getElementById("out").innerText = "Konvertoni prej BCD (5-4-2-1)";
+            break;
+        case "3":
+            document.getElementById("in").innerText = "Konvertoni ne BCD (5-2-1-1)";
+            document.getElementById("out").innerText = "Konvertoni prej BCD (5-2-1-1)";
+            break;
+        case "4":
+            document.getElementById("in").innerText = "Konvertoni ne BCD (2-4-2-1)";
+            document.getElementById("out").innerText = "Konvertoni prej BCD (2-4-2-1)";
+            break;
+        case "5":
+            document.getElementById("in").innerText = "Konvertoni ne XS3 (84-2-1)";
+            document.getElementById("out").innerText = "Konvertoni prej XS3 (84-2-1)";
+            break;
+        case "6":
+            document.getElementById("in").innerText = "Konvertoni ne Gray Code";
+            document.getElementById("out").innerText = "Konvertoni prej Gray Code";
+            break;
+        case "7":
+            document.getElementById("in").innerText = "Konvertoni ne BCD (4-3-2-1)";
+            document.getElementById("out").innerText = "Konvertoni prej BCD (4-3-2-1)";
+            break;
+        default:
+            document.getElementById("in").innerText = "Konvertoni ne NBCD (8-4-2-1)";
+            document.getElementById("out").innerText = "Konvertoni prej NBCD (8-4-2-1)";
+
+    }
+
+
 });
 
 function konverto() {
@@ -15,6 +52,7 @@ function konverto() {
 
     document.getElementById("rezultati").classList.remove("hidden");
     document.getElementById("rezultati").innerHTML = result;
+    truthTable(model);
 }
 
 function dekodo() {
@@ -231,6 +269,86 @@ function prejGrayCode(n) {
 
     return n;
 }
+
+
+function truthTable(modeli) {
+
+    let table = document.getElementById("table");
+
+    let values = [];
+
+    let models = [
+        "NBCD 8421",
+        "BCD 5421",
+        "BCD 5211",
+        "BCD 2421",
+        "XS-3",
+        "Gray Code",
+        "BCD 4321"
+    ];
+
+    let array = [8, 4, 2, 1];
+
+    switch (modeli) {
+        case "1":
+            for (let i = 0; i < 10; i++) {
+                values.push(konvertoNeBCD(i, "1"));
+            }
+            break;
+        case "2":
+            for (let i = 0; i < 10; i++) {
+                values.push(konvertoNeBCD(i, "2"));
+            }
+            break;
+        case "3":
+            for (let i = 0; i < 10; i++) {
+                values.push(konvertoNeBCD(i, "3"));
+            }
+            break;
+        case "4":
+            for (let i = 0; i < 10; i++) {
+                values.push(konvertoNeBCD(i, "4"));
+            }
+            break;
+        case "5":
+            for (let i = 0; i < 10; i++) {
+                values.push(konvertoXS3(array, i));
+            }
+            break;
+        case "6":
+            for (let i = 0; i < 10; i++) {
+                values.push(grayCode(i, 4));
+            }
+            break;
+        case "7":
+            for (let i = 0; i < 10; i++) {
+                values.push(konvertoNeBCD(i, "7"));
+            }
+            break;
+        default:
+            for (let i = 0; i < 10; i++) {
+                values.push(konvertoNeBCD(i, "1"));
+            }
+            break;
+    }
+
+    let tableHeading = `<thead> <tr><th>Decimal</th><th>${models[modeli - 1]}</th></tr>  <thead>`;
+    let tableBody = `<tbody> <tr>   <td>0</td>    <td>${values[0]}</td>    </tr>
+    <tr>   <td>1</td>    <td>${values[1]}</td>    </tr>
+    <tr>   <td>2</td>    <td>${values[2]}</td>    </tr>
+    <tr>   <td>3</td>    <td>${values[3]}</td>    </tr>
+    <tr>   <td>4</td>    <td>${values[4]}</td>    </tr>
+    <tr>   <td>5</td>    <td>${values[5]}</td>    </tr>
+    <tr>   <td>6</td>    <td>${values[6]}</td>    </tr>
+    <tr>   <td>7</td>    <td>${values[7]}</td>    </tr>
+    <tr>   <td>8</td>    <td>${values[8]}</td>    </tr>
+    <tr>   <td>9</td>    <td>${values[9]}</td>    </tr> </tbody>
+    `;
+
+    table.innerHTML = tableHeading + tableBody;
+
+}
+
 
 
 const images = ['image.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg', 'image5.jpg', 'image6.jpg', 'image7.png', 'image8.jpg', 'image9.jpg', 'image10.jpg',];
