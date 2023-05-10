@@ -1,3 +1,4 @@
+// Made in 2023 by Erzen Krasniqi
 
 let modeli = document.getElementById('modeli');
 
@@ -248,26 +249,46 @@ function konvertoZ(array, targeti) {
 }
 
 
+// function grayCode(n, length) {
+//     let gray = (n ^ (n >> 1)).toString(2);
+//     while (gray.length < length) {
+//         gray = '0' + gray;
+//     }
+//     return gray;
+// }
+
+
+// function prejGrayCode(n) {
+//     // E kthejm ne numer binar
+//     n = parseInt(n, 2);
+
+//     let mask = n;
+//     while (mask !== 0) {
+//         mask >>= 1;
+//         n ^= mask;
+//     }
+
+//     return n;
+// }
+
 function grayCode(n, length) {
-    let gray = (n ^ (n >> 1)).toString(2);
+    let bigN = BigInt(n);
+    let gray = (bigN ^ (bigN >> 1n)).toString(2);
     while (gray.length < length) {
         gray = '0' + gray;
     }
     return gray;
 }
 
-
 function prejGrayCode(n) {
-    // E kthejm ne numer binar
-    n = parseInt(n, 2);
-
-    let mask = n;
-    while (mask !== 0) {
-        mask >>= 1;
-        n ^= mask;
+    let bigN = BigInt('0b' + n);
+    let mask = bigN;
+    while (mask !== 0n) {
+        mask >>= 1n;
+        bigN ^= mask;
     }
 
-    return n;
+    return bigN.toString();
 }
 
 
@@ -386,3 +407,87 @@ kinet.on('start', function () {
 kinet.on('end', function () {
     //
 });
+
+// Select Menu
+
+const wrapper = document.querySelector(".wrapper"),
+    selectBtn = wrapper.querySelector(".select-btn"),
+    searchInp = wrapper.querySelector("input"),
+    options = wrapper.querySelector(".options");
+
+let countries = ["NBCD (8-4-2-1)", "XS-3", "Gray Code", "5-4-2-1", "5-2-1-1", "2-4-2-1", "4-3-2-1"];
+
+
+function shtoNeMenu(modeli) {
+    options.innerHTML = "";
+    countries.forEach(_modeli => {
+        let zgjedhur = _modeli == modeli ? "selected" : "";
+        let li = `<li title="${_modeli}" onclick="updateModel(this)" class="${zgjedhur}">${_modeli}</li>`;
+        options.insertAdjacentHTML("beforeend", li);
+    });
+}
+shtoNeMenu();
+
+function updateModel(selectedLi) {
+    shtoNeMenu(selectedLi.innerText);
+    wrapper.classList.remove("active");
+    selectBtn.firstElementChild.innerText = selectedLi.innerText;
+    console.log(selectedLi.innerText);
+
+
+
+    const selectedValue = selectedLi.innerText;
+
+    switch (selectedValue) {
+        case "NBCD (8-4-2-1)":
+            document.getElementById("in").innerText = "Konvertoni ne NBCD (8-4-2-1)";
+            document.getElementById("out").innerText = "Konvertoni prej NBCD (8-4-2-1)";
+            model = "1";
+
+            break;
+        case "5-4-2-1":
+            document.getElementById("in").innerText = "Konvertoni ne BCD (5-4-2-1)";
+            document.getElementById("out").innerText = "Konvertoni prej BCD (5-4-2-1)";
+            model = "2";
+
+            break;
+        case "5-2-1-1":
+            document.getElementById("in").innerText = "Konvertoni ne BCD (5-2-1-1)";
+            document.getElementById("out").innerText = "Konvertoni prej BCD (5-2-1-1)";
+            model = "3";
+
+            break;
+        case "2-4-2-1":
+            document.getElementById("in").innerText = "Konvertoni ne BCD (2-4-2-1)";
+            document.getElementById("out").innerText = "Konvertoni prej BCD (2-4-2-1)";
+            model = "4";
+
+            break;
+        case "XS-3":
+            document.getElementById("in").innerText = "Konvertoni ne XS3 (84-2-1)";
+            document.getElementById("out").innerText = "Konvertoni prej XS3 (84-2-1)";
+            model = "5";
+
+            break;
+        case "Gray Code":
+            document.getElementById("in").innerText = "Konvertoni ne Gray Code";
+            document.getElementById("out").innerText = "Konvertoni prej Gray Code";
+            model = "6";
+
+            break;
+        case "4-3-2-1":
+            document.getElementById("in").innerText = "Konvertoni ne BCD (4-3-2-1)";
+            document.getElementById("out").innerText = "Konvertoni prej BCD (4-3-2-1)";
+            model = "7";
+            break;
+        default:
+            document.getElementById("in").innerText = "Konvertoni ne NBCD (8-4-2-1)";
+            document.getElementById("out").innerText = "Konvertoni prej NBCD (8-4-2-1)";
+            model = "1";
+
+    }
+}
+
+
+
+selectBtn.addEventListener("click", () => wrapper.classList.toggle("active"));

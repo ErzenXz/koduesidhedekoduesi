@@ -21,8 +21,9 @@
 
     <main>
         <h1>Koduesi dhe Dekoduesi</h1>
+        <br>
 
-        <select name="modeli" id="modeli">
+        <select name="modeli" id="modeli" class="hidden">
             <option value="0" disabled selected>Modeli</option>
             <option value="1">NBCD (8-4-2-1)</option>
             <option value="5">XS3 (84-2-1)</option>
@@ -33,6 +34,19 @@
             <option value="4">2-4-2-1</option>
         </select>
 
+
+        <div class="wrapper">
+            <div class="select-btn">
+                <span>Zgjedhni Modelin</span>
+                <i class="uil uil-angle-down"></i>
+            </div>
+            <div class="content">
+
+                <ul class="options"></ul>
+            </div>
+        </div>
+
+        <br><br>
         <h3 id="in">Konvertoni ne BCD</h3>
 
         <div class="toBCD">
@@ -56,13 +70,16 @@
 
         <table id="table"></table>
 
+
+
     </main>
+
 
 
     <div id="circle" class="circle"></div>
 
     <div class="version">
-        <pre><a href="https://erzen.tk" target="_blank">Erzen Krasniqi</a>           All rights reserved         2023©</pre>
+        <pre><a href="https://erzen.tk" target="_blank">Erzen Krasniqi</a>         All rights reserved         2023©</pre>
     </div>
 
 </body>
